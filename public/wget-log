@@ -1,0 +1,56 @@
+--2013-04-01 14:05:16--  http://%0A/
+Resolving \n (\n)... failed: Name or service not known.
+wget: unable to resolve host address ‘\n’
+--2013-04-01 14:05:16--  ftp://maintainer/
+           => ‘.listing’
+Resolving maintainer (maintainer)... 198.105.251.46, 69.16.143.110
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:09:32--  ftp://maintainer/
+  (try: 2) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:13:48--  ftp://maintainer/
+  (try: 3) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:18:06--  ftp://maintainer/
+  (try: 4) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:22:24--  ftp://maintainer/
+  (try: 5) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:26:44--  ftp://maintainer/
+  (try: 6) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:31:04--  ftp://maintainer/
+  (try: 7) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:35:26--  ftp://maintainer/
+  (try: 8) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... failed: Connection timed out.
+Retrying.
+
+--2013-04-01 14:39:48--  ftp://maintainer/
+  (try: 9) => ‘.listing’
+Connecting to maintainer (maintainer)|198.105.251.46|:21... failed: Connection timed out.
+Connecting to maintainer (maintainer)|69.16.143.110|:21... 
