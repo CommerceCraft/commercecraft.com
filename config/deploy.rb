@@ -1,8 +1,11 @@
 set :application, "commercecraft.com"
 set :repository,  "git@github.com:mrbanzai/commercecraft.com"
 set :deploy_to, "/srv/#{application}"
-set :user, "michael"
+set :user, "deploy"
 set :ssh_options, { :forward_agent => true }
+default_run_options[:pty] = true
+set :use_sudo, true
+set :php_bin, 'php'
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -25,3 +28,19 @@ after "deploy:restart", "deploy:cleanup"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+after "deploy", "deploy:cleanup"
+after "deploy:update_code", "composer:install"
+before "composer:install", "composer:copy_vendors"
+
+namespace :composer do
+  desc "Copy vendors from previous release"
+    task :copy_vendors, :except => { :no_release => true } do
+      run "if [ -d #{previous_release}/vendor ]; then cp -al #{previous_release}/vendor #{latest_release}/vendor; fi"
+    end
+
+    task :install do
+      run "sh -c 'cd #{latest_release} && curl -s http://getcomposer.org/installer | #{php_bin}'"
+      run "sh -c 'cd #{release_path} && ./composer.phar install'"
+    end
+end
