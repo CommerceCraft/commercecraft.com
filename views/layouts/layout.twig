@@ -1,45 +1,126 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
+{% block all %}<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 {{ bp_html_classes|default('') }}" lang="{{ bp_language|default('en') }}" {{ bp_html_attributes|default('')|raw }}> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 {{ bp_html_classes|default('') }}" lang="{{bp_language|default('en')}}" {{ bp_html_attributes|default('')|raw }}> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 {{ bp_html_classes|default('') }}" lang="{{ bp_language|default('en') }}" {{ bp_html_attributes|default('')|raw }}> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js {{ bp_html_classes|default('') }}" lang="{{ bp_language|default('en') }}" {{ bp_html_attributes|default('')|raw }}> <!--<![endif]-->
+{% block head_outer %}
+    <head {{bp_head_attributes|default('')|raw}}>
+        {% block head %}
+        {% block head_meta %}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block head_meta_description %}{% endblock %}">
+        <meta name="keywords" content="{% block head_meta_keywords %}{% endblock %}">
+        {% block head_meta_viewport_tag %}<meta name="viewport" content="{{ bp_meta_viewport|default('width=device-width, initial-scale=1') }}">{% endblock %}
+        {% endblock head_meta %}
+        {% block head_css %}
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap.min.css">
+        {% block head_pre_bootstrap_css %}
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-        <link rel="stylesheet" href="css/normalize.css">
+            .navbar-brand {
+              padding: 0;
+            }
+        </style>
+        {% endblock %}
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-        {% block headstyles %}{% endblock %}
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        {% block headscripts %}{% endblock %}
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
-        {% block content %}
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+        {% block head_css_custom %}{% endblock %}
         {% endblock %}
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        {% block bodyscripts %}{% endblock %}
+        {% block head_js %}
+        <script src="{{ app.request.basepath }}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        {% block head_js_custom %}{% endblock %}
+        {% endblock %}
+        {% endblock head %}
+    </head>
+{% endblock head_outer %}
+{% block body_outer %}
+    <body {{ bp_body_attributes|default('')|raw }}>
+    {% block body %}
+        {% block body_browsehappy %}
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% endblock %}
+        {% block navbar %}
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img src="{{ app.request.basepath }}/img/nav-logo.png" alt="commerce|Craft"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Who We Are</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">What We Do <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">eCommerce</a></li>
+                    <li><a href="#">Development and Support</a></li>
+                    <li><a href="#">Security and Prevention</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Let's Talk!</a></li>
+              </ul>
+              <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                  <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+            </div><!--/.navbar-collapse -->
+          </div>
+        </div>
+        {% endblock %}
+        {% block jumbotron %}
+        {% endblock %}
+        {% block body_container %}
+        <div class="container">
+          {% block content %}
+          {% endblock %}
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+          <hr>
+
+          {% block footer %}
+          <footer>
+            <p>&copy; commerce|Craft 2014</p>
+          </footer>
+          {% endblock %}
+        </div> <!-- /container -->
+        {% endblock body_container %}
+        {% block body_js %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
         <script>
-            var _gaq=[['_setAccount','UA-39761658-1'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-39761658-1', 'commercecraft.com');
+            ga('send', 'pageview');
         </script>
+        {% block body_js_custom %}{% endblock %}
+        {% endblock %}
+    {% endblock body %}
     </body>
-</html>
+{% endblock body_outer %}
+</html>{% endblock all %}

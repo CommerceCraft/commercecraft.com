@@ -1,13 +1,49 @@
 {% extends "layouts/layout.twig" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}CommerceCraft - Home{% endblock %}
+
+{% block jumbotron %}
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+          <div class="container">
+            <h1>"Can we do that? How?"</h1>
+            <p>Today's businesses are increasingly connected by technology.  Customers research your products online;
+            data flows between you and your partners and/or remote sites; patterns can be identified, and processes optimized,
+            from the various datapoints that you already collect.</p>
+            <p>Chances are, you have all sorts of ideas for ways to
+            grow your business, save money, or simply become more efficient.  But, what's the best approach?  How can you
+            manage to implement these new processes when you're already mired in the day-to-day?</p>
+            <p><a class="btn btn-primary btn-lg" role="button">Let us help &raquo;</a></p>
+          </div>
+        </div>
+{% endblock %}
 
 {% block content %}
-<h1>Home</h1>
-<p>
-  Welcome to CommerceCraft!  We are currently under construction.
-</p>
-<p>
-  For any questions or comments, please contact <a href="mailto:michael@commercecraft.com">michael@commercecraft.com</a>.
-</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>eCommerce</h2>
+              <p>Your business needs an online presence.  Or maybe you already have one that's not working for you.
+              With eCommerce sales of $483 <strong>billion</strong> projected for 2014 in North American alone,
+              how can you tap into your online customer base?</p>
+              <p>We can help.</p>
+              <p><a class="btn btn-default" href="#" role="button">Find out how &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+              <h2>Development and Support</h2>
+              <p>You rely on this application every day, but it's been acting up lately, or you need to add a new feature
+              to keep up with your changing business.  But now the developer who worked on it is gone, and no one knows
+              how in the world to fix it.  Do you have to rewrite the whole thing?  Does your team have the bandwidth or
+              skillset to tackle that now?</p>
+              <p>We've got your back.</p>
+              <p><a class="btn btn-default" href="#" role="button">Learn more &raquo;</a></p>
+           </div>
+            <div class="col-md-4">
+              <h2>Security and Prevention</h2>
+              <p>You just heard about the latest credit card breach from your competitor's site, and you want to make
+              sure that your customers aren't also vulnerable.  Is your environment secure and up-to-date?  What about
+              your existing application?  Are you taking the appropriate steps to ensure that you're protected?</p>
+              <p>We've been there before.  We'll dig in, make sure everything's buttoned down, and show you the ropes.</p>
+              <p><a class="btn btn-default" href="#" role="button">Ask for help &raquo;</a></p>
+            </div>
+          </div>
 {% endblock %}

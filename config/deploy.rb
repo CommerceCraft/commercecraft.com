@@ -1,5 +1,5 @@
 set :application, "commercecraft.com"
-set :repository,  "git@github.com:mrbanzai/commercecraft.com"
+set :repository,  "git@github.com:CommerceCraft/commercecraft.com"
 set :deploy_to, "/srv/#{application}"
 set :user, "deploy"
 set :ssh_options, { :forward_agent => true }
