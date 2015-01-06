@@ -4,19 +4,45 @@
    Author's custom styles
    ========================================================================== */
 
+.jumbotron {
+  padding: 0;
+}
 
+.jumbotron > .container {
+  position: relative;
+}
 
+.jumbotron .content {
+  position: relative;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
 
+.jumbotron p {
+  font-size: 1.4em;
+  font-weight: bold;
+}
 
+.jumbotron .image-rotator {
+  background: url(/img/office.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 1170px;
+  opacity: 0.5;
+  -webkit-filter: blur(1px) grayscale(100%);
+  -moz-filter: blur(1px) grayscale(100%);
+  -o-filter: blur(1px) grayscale(100%);
+  filter: blur(1px) grayscale(100%);
+  z-index: 0;
+  transition: background 2s ease;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.jumbotron:hover .image-rotator {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: grayscale(0%);
+};
