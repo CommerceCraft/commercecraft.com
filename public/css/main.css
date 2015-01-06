@@ -31,7 +31,7 @@
   right: 0;
   bottom: 0;
   width: 1170px;
-  opacity: 0.5;
+  opacity: 0.3;
   -webkit-filter: blur(1px) grayscale(100%);
   -moz-filter: blur(1px) grayscale(100%);
   -o-filter: blur(1px) grayscale(100%);
@@ -40,9 +40,10 @@
   transition: background 2s ease;
 }
 
-.jumbotron:hover .image-rotator {
+.jumbotron .image-rotator.image-rotator-bright {
   -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);
   -o-filter: grayscale(0%);
   filter: grayscale(0%);
-};
+  opacity: 0.6;
+}

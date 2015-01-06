@@ -46,5 +46,10 @@ $(window).load(function() { //start after HTML, images have loaded
       '/img/office.png'
     ];
 
-    BackgroundRotator.init($('.image-rotator'), rotatingImages);
+    var $jumbotronRotator = $('.jumbotron .image-rotator');
+    BackgroundRotator.init($jumbotronRotator, rotatingImages);
+
+    $('.jumbotron .content .btn-primary').hover(function(e) {
+      $jumbotronRotator.toggleClass('image-rotator-bright');
+    });
 });
